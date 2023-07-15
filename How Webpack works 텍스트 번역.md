@@ -16,7 +16,7 @@ Let’s say the life cycle has these 5 methods:
 >
 > 
 >
-> > 컴파일-시작→모듈 해석→파싱→번들링→컴파일-완료
+> > 컴파일-시작→해석→파싱→번들링→컴파일-완료
 
 The plugins can be integrated to listen to these events and do the operation on the source code files. There will be some default plugins integrated to perform the core functionalities.
 
