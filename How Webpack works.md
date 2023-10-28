@@ -33,18 +33,18 @@ Webpack 라이프사이클은 다섯 단계로 나누어볼 수 있다.
 
 ### 해석
 
-**해석기(resolver)**가 상대 경로를 절대 경로로 변환한다. **모듈 팩토리(module factory)**가 해석기로부터 파일에 대한 정보를 받아 **모듈 객체(module object)**를 만든다. 모듈 객체는 파일의 크기, 절대 경로, 종류, id 등의 정보를 포함한다. 이후 컴파일러는 파일의 종류에 적합한 트랜스파일러를 찾고, **트랜스파일러(transpiler)**는 코드를 브라우저가 읽을 수 있는 형태로 변환한다.
+**해석기(resolver)**가 상대 경로를 절대 경로로 변환한다. **모듈 팩토리(module factory)**가 해석기로부터 파일에 대한 정보를 받아 **모듈 객체(module object)**를 만든다. 모듈 객체는 파일의 크기, 절대 경로, 종류, id 등의 정보를 포함한다. 그리고 나서 컴파일러는 파일의 종류에 적합한 트랜스파일러를 찾고, **트랜스파일러(transpiler)**는 코드를 브라우저가 읽을 수 있는 형태로 변환한다.
 
 ### 파싱
 
-**파서(parser)**는 모듈 팩토리로부터 모듈 객체를 받아 AST로 파싱하고, require와 import문으로 모듈 객체에 의존성 정보를 갱신한다. 이때 모듈 객체에 적힌 파일의 종류에 따라 컴파일러가 트랜스파일러를 사용하여 코드를 브라우저가 읽을 수 있는 형태로 변환한다.
+**파서(parser)**는 트랜스파일된 파일을 파싱하고 찾은 `require`나 `import`문을 사용해 모듈 팩토리부터 받은 모듈 객체의 의존성 정보를 갱신한다.
 
-```json
+```javascript
 {
-    id: 0,
-    absolutePath: '/path',
-    fileType: '.jsx',
-    dependency: [{ id1, relativePath }, { id2, relativePath }]
+  id: 0,
+  absolutePath: '/path',
+  fileType: '.jsx',
+  dependency: [{ id1, relativePath }, { id2, relativePath }]
 }
 ```
 

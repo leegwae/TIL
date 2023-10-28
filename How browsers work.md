@@ -63,7 +63,7 @@ CPR은 일반적으로 초당 60회 정도의 주기로 계산한다.
 
 HTML을 파싱하는 것은 HTML을 DOM 트리로 변환하는 것이다. DOM 트리는 DOM(Document Object Model) 노드로 구성되어있다. HTML5 명세에 따르면 HTML 파싱 알고리즘은 토큰화 단계와 트리 구축 단계로 구성된다.
 
-1. 브라우저는 서버로부터 응답받은 바이트 데이터를 응답 헤더의 `Content-Type`에 지정된 인코딩 방식을 사용하여 문자열로 변환한다. (로컬 디스크로부터 불러오는 경우 `<meta>` 태그의 `charset` 어트리뷰트에 지정된 인코딩 방식을 사용한다. [출처](https://stackoverflow.com/questions/4696499/meta-charset-utf-8-vs-meta-http-equiv-content-type))
+1. 브라우저는 서버로부터 응답받은 바이트 데이터를 응답 헤더의 `Content-Type`에 지정된 인코딩 방식을 사용하여 문자열로 변환한다. HTML의 경우, 대개 `Content-Type: text/html; charset=utf-8`으로 명시될 것이다. (로컬 디스크로부터 불러오는 경우 `.html` 확장자로 HTML 문서라고 판단하고 `<meta>` 태그의 `charset` 어트리뷰트에 지정된 인코딩 방식을 사용한다. [출처](https://stackoverflow.com/questions/4696499/meta-charset-utf-8-vs-meta-http-equiv-content-type))
 
 2. **토큰화(tokenization)**는 파싱에서 어휘 분석 단계이다. HTML 문서를 나타내는 문자열을 HTML 토큰으로 분해한다. HTML 토큰에는 시작 태그(start tag), 종료 태그(end tag), 속성 이름과 속성 값들이 있다.
    토크나이저는 토큰화를 수행하는 파서이다. 토크나이저는 토큰을 인식하여 트리 생성자에게 넘기는데 이 과정은 HTML 문서가 끝날 때까지 반복된다.
